@@ -1,76 +1,84 @@
-# mern-ecommerce
+# MERN E-Commerce Web Application
 
-> Frontend-> Vite JS (React JS)
+> **Author:** Rahul Seervi
 
-> Backend-> Node JS & Express JS
+> **Frontend:** Vite JS (React JS)
 
-> Database-> MongoDB
+> **Backend:** Node JS & Express JS
+
+> **Database:** MongoDB
 
 ## Installation process
 
-1. #### clone the repo using this command
+1. #### Clone the repo using this command
    ```bash
-   git clone https://github.com/ashraf-kabir/mern-ecommerce.git
+   git clone https://github.com/thecreativecodeflow/MERN-E-commerce-web-application.git
    ```
-2. #### install npm packages
-   1. install backend packages
+2. #### Install npm packages
+   1. Install backend packages
    ```bash
-   cd mern-ecommerce
+   cd MERN-E-commerce-web-application
    npm install
    ```
-   2. install frontend packages
+   2. Install frontend packages
    ```bash
    cd frontend
    npm install
    ```
-3. go to the parent folder of mern-ecommerce & create .env for connection, JWT_SECRET, BRAINTREE_MERCHANT_ID, BRAINTREE_PUBLIC_KEY and BRAINTREE_PRIVATE_KEY.
+3. #### Configure environment variables
+   Create a `.env` file in the root folder for MongoDB connection and JWT secret. Braintree credentials are optional (only needed if you want to enable payment processing).
 
    ```bash
-   cd mern-ecommerce
-   sudo nano .env
+   cd MERN-E-commerce-web-application
    ```
 
-   (ctrl+x to save & nano follow instruction there)
+   Create a `.env` file with the following variables:
 
-   ##### sample code for backend .env
+   ##### Sample code for backend .env
 
    ```env
    MONGODB_URI=YOUR_MONGODB_URI
    JWT_SECRET=YOUR_JWT_SECRET
-   BRAINTREE_MERCHANT_ID=YOUR_BRAINTREE_MERCHANT_ID
-   BRAINTREE_PUBLIC_KEY=YOUR_BRAINTREE_PUBLIC_KEY
-   BRAINTREE_PRIVATE_KEY=YOUR_BRAINTREE_PRIVATE_KEY
+   BRAINTREE_MERCHANT_ID=YOUR_BRAINTREE_MERCHANT_ID (optional)
+   BRAINTREE_PUBLIC_KEY=YOUR_BRAINTREE_PUBLIC_KEY (optional)
+   BRAINTREE_PRIVATE_KEY=YOUR_BRAINTREE_PRIVATE_KEY (optional)
    ```
 
-4. Frontend config.js
+4. #### Configure frontend
+
+   Update the `config.js` file in the frontend folder:
 
    ```bash
-   cd mern-ecommerce/frontend
-   sudo nano config.js
+   cd MERN-E-commerce-web-application/frontend
    ```
 
-   ##### sample code for frontend config.js
+   ##### Sample code for frontend config.js
 
    ```javascript
    export const API = 'http://localhost:5000/api';
    ```
 
-   ##### Instructions:
+   ##### Important Notes:
 
-   1. for mongodb atlas database creation follow this tutorial->https://www.youtube.com/watch?v=KKyag6t98g8
-   2. you can use any random string as JWTSECRET
-   3. if your backend server is on a different port or domain, update the API URL in config.js accordingly
-   4. #### note: add .env on .gitignore
-   5. for server deployment use secrets directly
+   1. For MongoDB Atlas database creation, follow this tutorial: https://www.youtube.com/watch?v=KKyag6t98g8
+   2. You can use any random string as JWT_SECRET (e.g., a long random alphanumeric string)
+   3. If your backend server is on a different port or domain, update the API URL in config.js accordingly
+   4. **Important:** Make sure `.env` is added to `.gitignore` to keep your secrets safe
+   5. Braintree credentials are only needed if you want to implement payment processing
 
-5. <b>deploy this project</b> on your local server by using this command
+5. #### Run the project locally
+
+   Start both backend and frontend servers with a single command:
 
    ```bash
-   cd mern-ecommerce
+   cd MERN-E-commerce-web-application
    npm run dev
    ```
 
-   #### note: both backend & frontend server will start at once with the above command.
+   #### Note: This command will start both the backend and frontend servers concurrently.
+   
+   - **Backend:** http://localhost:5000
+   - **Frontend:** http://localhost:5173
 
 6. #### Database Structure: (Schema)
    1. categories: \_id, name, createdAt, updatedAt;
@@ -78,20 +86,31 @@
    3. products: \_id, photo (Object), sold, name, description, price, category, shipping, quantity, createdAt, updatedAt
    4. users: \_id, role, history (Array), name, email, salt, hashed_password, createdAt, updatedAt
 
-### App Description:
+## Features
 
-    1. user can view all products
-    2. user can view single product
-    3. user can search products and view products by category and price range
-    4. user can add to cart checkout products using credit card info
-    5. user can register & sign in
-    6. admin can create, edit, update & delete products
-    7. admin can create categories
-    8. admin can view ordered products
-    9. admin can change the status of a product (processing, shipped, delivered, etc.)
-    10. FRONTEND URL: http://localhost:5173/
-    11. Project demo will be added soon...
+### User Features:
+- View all products with pagination
+- View single product details
+- Search products by name
+- Filter products by category and price range
+- Add products to cart
+- Checkout products using credit card (requires Braintree configuration)
+- User registration and authentication
+- View order history
 
+### Admin Features:
+- Create, edit, update, and delete products
+- Create and manage categories
+- View all orders
+- Update order status (processing, shipped, delivered, etc.)
+- Manage users
 
-1. <b>Deployed on: (No longer available due to heroku free dyno plan has deprecated)</br> https://ecommerce-ak.herokuapp.com/
-2. raise a star to support me
+## Deployment Status
+
+🚧 **This project is currently not deployed.** It runs locally for development purposes.
+
+---
+
+### Support
+
+If you find this project helpful, please consider giving it a ⭐ on GitHub!
